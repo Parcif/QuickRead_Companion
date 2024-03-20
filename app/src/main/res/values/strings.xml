@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QuickRead Companion</string>
+    <string name="translate_button">Translate</string>
+    <string name="voiceover_button">Voiceover</string>
 </resources>

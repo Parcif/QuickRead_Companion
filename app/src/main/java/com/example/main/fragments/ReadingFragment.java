@@ -1,6 +1,5 @@
 package com.example.main.fragments;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -31,7 +30,7 @@ public class ReadingFragment extends Fragment
         View view = inflater.inflate(R.layout.fragment_reading, container, false);
 
         // находим текстовое поле и кнопку по идентификаторам
-        text_field = view.findViewById(R.id.text_field);
+        text_field = view.findViewById(R.id.editText);
         read_button = view.findViewById(R.id.read_button);
 
         // устанавливаем обработчик нажатия на кнопку
