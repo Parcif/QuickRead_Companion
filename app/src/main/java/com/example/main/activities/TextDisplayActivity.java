@@ -22,9 +22,25 @@ public class TextDisplayActivity extends AppCompatActivity
 
         text_display = findViewById(R.id.text_display);
 
+
+        int reading_speed = 250; // переменная скорости чтения
+        double input_speed = 250; // переменная, которую будем проверять
+
+        try {
+            reading_speed = Integer.parseInt(String.valueOf(input_speed));
+        } catch (NumberFormatException ex) {
+            System.out.println("Input is not an int value"); // желательно Sout поменять на вывод на экран приложения
+        }
+
+        if(reading_speed <= 0){
+            System.out.println("Number is negative"); // тут аналогично
+        }
+
+
         Intent intern = getIntent();
         ArrayList<String> words = intern.getStringArrayListExtra("words");
-        TextDisplay.startDisplay(text_display, words, 250);
+
+        TextDisplay.startDisplay(text_display, words, reading_speed);
     }
 
 }
