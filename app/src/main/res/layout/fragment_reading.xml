@@ -6,49 +6,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--кнопка для начала чтения-->
-
-    <!--текстовое поле для ввода текста-->
-
-    <Button
-        android:id="@+id/read_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
-        android:text="Погнали нахуй"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText" />
-
-    <EditText
-        android:id="@+id/editText"
+    <!-- Текстовое поле с прокруткой -->
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="440dp"
-        android:hint="Введите текст..."
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/scrollview_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/numberField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.75">
 
-    <!--это поле для ввода скорости чтения, расположенное ниже текстового поля и выше кнопки -->
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="Enter text..."
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:gravity="top|start"
+            android:padding="16dp"
+            android:minHeight="565dp" />
+    </ScrollView>
+
+    <!-- Поле скорости чтения -->
     <EditText
         android:id="@+id/numberField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginBottom="55dp"
-        android:ems="10"
-        android:hint="Enter a number"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/speed_field_border"
+        android:ems="4"
+        android:gravity="center"
+        android:hint="speed"
         android:inputType="number"
         android:maxLength="10"
-        app:layout_constraintBottom_toTopOf="@+id/read_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:minHeight="48dp"
+        app:layout_constraintTop_toBottomOf="@id/scrollView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--кнопка для начала чтения-->
+    <Button
+        android:id="@+id/read_button"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Read"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/numberField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
