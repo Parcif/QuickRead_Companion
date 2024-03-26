@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.main.activities.TextDisplayActivity;
 import com.example.main.utils.*;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 public class ReadingFragment extends Fragment
 {
     private EditText text_field;
+    private EditText speed_field;
     private Button read_button;
     private TextView text_display;
 
@@ -29,8 +31,9 @@ public class ReadingFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_reading, container, false);
 
-        // находим текстовое поле и кнопку по идентификаторам
+        // находим поля и кнопку по идентификаторам
         text_field = view.findViewById(R.id.editText);
+        speed_field = view.findViewById(R.id.numberField);
         read_button = view.findViewById(R.id.read_button);
 
         // устанавливаем обработчик нажатия на кнопку
@@ -44,9 +47,25 @@ public class ReadingFragment extends Fragment
                 // обработка текста
                 ArrayList<String> words = TextProcessing.processText(entered_text);
 
+                // получение скорости чтения из поля
+                String speed_text = speed_field.getText().toString();
+                int read_speed = 0;
+                if(!speed_text.isEmpty())
+                {
+                    read_speed = Integer.parseInt(speed_text);
+                } else
+                {
+                    // Обработка случая, когда поле скорости чтения пустое
+                    // Например, можно показать Toast сообщение
+                    Toast.makeText(getContext(), "Please enter a reading speed", Toast.LENGTH_SHORT).show();
+                    return; // Выход из метода, если поле пустое
+                }
+
+
                 // Запускаем новую активность и передаем текст через Intent
                 Intent intent = new Intent(requireContext(), TextDisplayActivity.class);
                 intent.putExtra("words", words);
+                intent.putExtra("read_speed", read_speed); // Передаем скорость чтения
                 startActivity(intent);
 
             }
