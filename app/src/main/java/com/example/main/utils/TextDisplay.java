@@ -7,11 +7,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class TextDisplay
 {
-    public static void startDisplay(TextView text_view, ArrayList<String> words, double speed)
+    public static void startDisplay(TextView text_view, ArrayList<String> words, int speed)
     {
         // расчет задержки в формате слово/секунда
-        speed = 60.0 / speed;
-        long delay = (long) (speed * 1000);
+        double double_speed = 60.0 / speed;
+        long delay = (long) (double_speed * 1000);
 
         Handler handler = new Handler();
         AtomicInteger index = new AtomicInteger(0);
