@@ -27,25 +27,4 @@ public class MainActivity extends AppCompatActivity
                 .commit();
     }
 
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        int id = item.getItemId();
-        switch(id)
-        {
-            case 1000001:
-                Toast.makeText(this, "Translate", Toast.LENGTH_SHORT).show();
-                break;
-            case 1000007:
-                Toast.makeText(this, "Voiceover", Toast.LENGTH_SHORT).show();
-                break;
-
-        }
-        return true;
-    }
 }
