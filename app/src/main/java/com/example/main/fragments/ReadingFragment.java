@@ -24,7 +24,6 @@ public class ReadingFragment extends Fragment
     private EditText text_field;
     private EditText speed_field;
     private Button read_button;
-    private TextView text_display;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -61,7 +60,6 @@ public class ReadingFragment extends Fragment
                     return; // Выход из метода, если поле пустое
                 }
 
-
                 // Запускаем новую активность и передаем текст через Intent
                 Intent intent = new Intent(requireContext(), TextDisplayActivity.class);
                 intent.putExtra("words", words);
@@ -74,23 +72,5 @@ public class ReadingFragment extends Fragment
         return view;
 
     }
-
-    // отображение окна с выводом слов
-//    private void displayText(ArrayList<String> words)
-//    {
-//        View text_view = LayoutInflater.from(getContext()).inflate(R.layout.text_display, null);
-//        // Находим текстовое поле в макете диалогового окна
-//        text_display = text_view.findViewById(R.id.text_display);
-//
-//        // Выводим текст на экран
-//        TextDisplay.startDisplay(text_display, words, 200);
-//
-//        // Создаем и показываем AlertDialog
-//        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-//        builder.setView(text_view);
-//
-//        AlertDialog dialog = builder.create();
-//        dialog.show();
-//    }
 
 }

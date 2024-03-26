@@ -24,8 +24,9 @@ public class TextDisplayActivity extends AppCompatActivity
 
         Intent intern = getIntent();
         ArrayList<String> words = intern.getStringArrayListExtra("words");
+        int read_speed = intern.getIntExtra("read_speed", 0);
 
-        TextDisplay.startDisplay(text_display, words, 250);
+        TextDisplay.startDisplay(text_display, words, read_speed);
     }
 
 }
